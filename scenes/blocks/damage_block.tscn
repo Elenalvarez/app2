@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dip80minmj1rp"]
+
+[ext_resource type="Texture2D" uid="uid://c3nd38jadgdth" path="res://assets/bloques/pixil-layer-Attack.png" id="1_0w24n"]
+[ext_resource type="Script" path="res://scripts/block.gd" id="1_obv0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0f3v"]
+
+[node name="DamageBlock" type="Node2D"]
+script = ExtResource("1_obv0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(100, 100)
+scale = Vector2(2, 2)
+texture = ExtResource("1_0w24n")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 61.0
+offset_right = 140.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d0f3v")
+placeholder_text = "x1"
+scroll_fit_content_height = true

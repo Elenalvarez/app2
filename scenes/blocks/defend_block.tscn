@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cujdf3u4jnn3l"]
+
+[ext_resource type="Script" path="res://scripts/block.gd" id="1_fs1be"]
+[ext_resource type="Texture2D" uid="uid://thglpw7u838g" path="res://assets/bloques/pixil-layer-defense.png" id="1_gqyc8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtral"]
+
+[node name="DefendBlock" type="Node2D"]
+script = ExtResource("1_fs1be")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(100, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("1_gqyc8")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = 60.0
+offset_right = 110.0
+offset_bottom = 141.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xtral")
+placeholder_text = "x1"
+scroll_fit_content_height = true

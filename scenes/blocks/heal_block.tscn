@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3xhunt56wph3"]
+
+[ext_resource type="Texture2D" uid="uid://bwo2j3rmn5c3p" path="res://assets/bloques/pixil-layer-Heal.png" id="1_gan0f"]
+[ext_resource type="Script" path="res://scripts/block.gd" id="1_sgxqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4rwy"]
+
+[node name="HealBlock" type="Node2D"]
+script = ExtResource("1_sgxqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(101, 100)
+scale = Vector2(2, 2)
+texture = ExtResource("1_gan0f")
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = 70.0
+offset_right = 136.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s4rwy")
+placeholder_text = "x1"
+scroll_fit_content_height = true
