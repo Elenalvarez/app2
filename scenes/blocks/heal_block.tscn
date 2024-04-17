@@ -7,13 +7,15 @@
 
 [node name="HealBlock" type="Node2D"]
 script = ExtResource("1_sgxqy")
+value = 1
+block_name = "HealBlock"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(101, 100)
 scale = Vector2(2, 2)
 texture = ExtResource("1_gan0f")
 
-[node name="TextEdit2" type="TextEdit" parent="."]
+[node name="TextEdit" type="TextEdit" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

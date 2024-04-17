@@ -20,6 +20,16 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1080
 window/size/viewport_height=2160
 window/handheld/orientation=1
+window/stretch/mode="viewport"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [rendering]
 

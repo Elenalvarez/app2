@@ -14,9 +14,22 @@ preload("res://scenes/blocks/heal_block.tscn")]
 func _ready():
 	add_piece()
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_up"):
+		move_up()
+		add_piece()
+	if Input.is_action_just_pressed("ui_down"):
+		move_down()
+		add_piece()
+	if Input.is_action_just_pressed("ui_left"):
+		move_left()
+		add_piece()
+	if Input.is_action_just_pressed("ui_right"):
+		move_right()
+		add_piece()
 
 func _on_touch_control_move(direction: Vector2):
-	move_blocks(direction) 
+	pass 
 
 func is_blank_space():
 	var blank = false
@@ -26,16 +39,88 @@ func is_blank_space():
 				blank = true
 	return blank
 
-func move_blocks(direction: Vector2):
-	match direction:
-		Vector2.UP:
-			pass
-		Vector2.DOWN:
-			pass
-		Vector2.RIGHT:
-			pass
-		Vector2.LEFT:
-			pass
+func move_up():
+	for i in range(1, height):
+		for j in width:
+			if board[i][j] != 0:
+				var container = grid.get_node(get_container_name(i, j))
+				var temp = container.get_child(0).duplicate()
+				board[i][j] = 0
+				for k in i+1:
+					var container_name = get_container_name(k,j)
+					if board[k][j] != 0:
+						var block_to_add:Block = grid.get_node(container_name).get_child(0)
+						if block_to_add.get_block_name() == temp.get_block_name():
+							block_to_add.add_value(temp.get_value())
+							break
+					else:
+						grid.get_node(container_name).add_child(temp)
+						board[k][j]= 1
+						break
+				container.get_child(0).free()
+
+func move_down():
+	for i in range(height-2, -1, -1):
+		for j in width:
+			if board[i][j] != 0:
+				var container = grid.get_node(get_container_name(i, j))
+				var temp = container.get_child(0).duplicate()
+				board[i][j] = 0
+				for k in range(height-1, 1, -1):
+					var container_name = get_container_name(k,j)
+					if board[k][j] != 0:
+						var block_to_add:Block = grid.get_node(container_name).get_child(0)
+						if block_to_add.get_block_name() == temp.get_block_name():
+							block_to_add.add_value(temp.get_value())
+							break
+					else:
+						grid.get_node(container_name).add_child(temp)
+						board[k][j]= 1
+						break
+				
+				container.get_child(0).free()
+
+func move_left():
+	for j in range(1, width):
+		for i in height:
+			if board[i][j] != 0:
+				var container = grid.get_node(get_container_name(i, j))
+				var temp = container.get_child(0).duplicate()
+				board[i][j] = 0
+				for k in j+1:
+					var container_name = get_container_name(i,k)
+					if board[i][k] != 0:
+						var block_to_add:Block = grid.get_node(container_name).get_child(0)
+						if block_to_add.get_block_name() == temp.get_block_name():
+							block_to_add.add_value(temp.get_value())
+							break
+					else:
+						grid.get_node(container_name).add_child(temp)
+						board[i][k]= 1
+						break
+						
+				container.get_child(0).free()
+
+func move_right():
+	for j in range(width-2, -1, -1):
+		for i in height:
+			if board[i][j] != 0:
+				var container = grid.get_node(get_container_name(i, j))
+				var temp = container.get_child(0).duplicate()
+				board[i][j] = 0
+				for k in range(width-1, 1, -1):
+					var container_name = get_container_name(i,k)
+					if board[i][k] != 0:
+						var block_to_add:Block = grid.get_node(container_name).get_child(0)
+						if block_to_add.get_block_name() == temp.get_block_name():
+							block_to_add.add_value(temp.get_value())
+							break
+					else:
+						grid.get_node(container_name).add_child(temp)
+						board[i][k]= 1
+						break
+						
+				container.get_child(0).free()
 
 func add_piece():
 	if is_blank_space():
@@ -46,14 +131,14 @@ func add_piece():
 			var type = int(randi_range(0, blocks.size()-1))
 			if board[row][column] == 0:
 				var temp = blocks[type].instantiate()
-				var container_name = get_container_number(row, column)
+				var container_name = get_container_name(row, column)
 				grid.get_node(container_name).add_child(temp)
 				board[row][column] = 1
 				blocks_mades += 1
 	else:
 		print("No space")
 
-func get_container_number(row: int, column: int):
+func get_container_name(row: int, column: int):
 	var number= 4*row + column+1
 	var name = "CenterContainer" + str(number)
 	return name

@@ -7,6 +7,8 @@
 
 [node name="DamageBlock" type="Node2D"]
 script = ExtResource("1_obv0q")
+value = 1
+block_name = "DamageBlock"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(100, 100)
