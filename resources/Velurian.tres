@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StartingStats" load_steps=2 format=3 uid="uid://dw7oxga0vg25m"]
+
+[ext_resource type="Script" path="res://scripts/StartingStats.gd" id="1_gbk1o"]
+
+[resource]
+script = ExtResource("1_gbk1o")
+my_name = "Velurian"
+max_hp = 100
+max_mana = 0
+damage = 10
+defense = 10
+heal = 0
+movement = 0

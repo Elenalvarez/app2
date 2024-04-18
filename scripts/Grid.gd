@@ -51,8 +51,19 @@ func move_up():
 					if board[k][j] != 0:
 						var block_to_add:Block = grid.get_node(container_name).get_child(0)
 						if block_to_add.get_block_name() == temp.get_block_name():
-							block_to_add.add_value(temp.get_value())
-							break
+							match i-k:
+								3:
+									if board[k+1][j] == 0 and board[k+2][j] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								2:
+									if board[k+1][j] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								1:
+									block_to_add.add_value(temp.get_value())
+									break
+							
 					else:
 						grid.get_node(container_name).add_child(temp)
 						board[k][j]= 1
@@ -66,13 +77,23 @@ func move_down():
 				var container = grid.get_node(get_container_name(i, j))
 				var temp = container.get_child(0).duplicate()
 				board[i][j] = 0
-				for k in range(height-1, 1, -1):
+				for k in range(height-1, -1, -1):
 					var container_name = get_container_name(k,j)
 					if board[k][j] != 0:
 						var block_to_add:Block = grid.get_node(container_name).get_child(0)
 						if block_to_add.get_block_name() == temp.get_block_name():
-							block_to_add.add_value(temp.get_value())
-							break
+							match k-i:
+								3:
+									if board[i+1][j] == 0 and board[i+2][j] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								2:
+									if board[i+1][j] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								1:
+									block_to_add.add_value(temp.get_value())
+									break
 					else:
 						grid.get_node(container_name).add_child(temp)
 						board[k][j]= 1
@@ -92,8 +113,18 @@ func move_left():
 					if board[i][k] != 0:
 						var block_to_add:Block = grid.get_node(container_name).get_child(0)
 						if block_to_add.get_block_name() == temp.get_block_name():
-							block_to_add.add_value(temp.get_value())
-							break
+							match j-k:
+								3:
+									if board[i][k+1] == 0 and board[i][k+2] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								2:
+									if board[i][k+1] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								1:
+									block_to_add.add_value(temp.get_value())
+									break
 					else:
 						grid.get_node(container_name).add_child(temp)
 						board[i][k]= 1
@@ -108,13 +139,23 @@ func move_right():
 				var container = grid.get_node(get_container_name(i, j))
 				var temp = container.get_child(0).duplicate()
 				board[i][j] = 0
-				for k in range(width-1, 1, -1):
+				for k in range(width-1, -1, -1):
 					var container_name = get_container_name(i,k)
 					if board[i][k] != 0:
 						var block_to_add:Block = grid.get_node(container_name).get_child(0)
 						if block_to_add.get_block_name() == temp.get_block_name():
-							block_to_add.add_value(temp.get_value())
-							break
+							match k-j:
+								3:
+									if board[i][j+1] == 0 and board[i][j+2] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								2:
+									if board[i][j+1] == 0:
+										block_to_add.add_value(temp.get_value())
+										break
+								1:
+									block_to_add.add_value(temp.get_value())
+									break
 					else:
 						grid.get_node(container_name).add_child(temp)
 						board[i][k]= 1

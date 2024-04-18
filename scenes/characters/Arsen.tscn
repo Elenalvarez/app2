@@ -1,6 +1,7 @@
-[gd_scene load_steps=107 format=3 uid="uid://dglvno75350qw"]
+[gd_scene load_steps=110 format=3 uid="uid://c1rwwacwagpxh"]
 
 [ext_resource type="Texture2D" uid="uid://cyilenal0uxoh" path="res://assets/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/07_1_atk/07_1_atk_1.png" id="1_jjn2t"]
+[ext_resource type="Script" path="res://scripts/Character.gd" id="1_jykdt"]
 [ext_resource type="Texture2D" uid="uid://bqmp38nkb8ovh" path="res://assets/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/07_1_atk/07_1_atk_2.png" id="2_6q0sb"]
 [ext_resource type="Texture2D" uid="uid://dgsvi0poc3ojn" path="res://assets/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/07_1_atk/07_1_atk_3.png" id="3_c8goa"]
 [ext_resource type="Texture2D" uid="uid://cknimj4n72jsy" path="res://assets/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/07_1_atk/07_1_atk_4.png" id="4_b1hi2"]
@@ -23,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://cs67jog5gjovw" path="res://assets/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/01_idle/01_idle_6.png" id="21_jupr6"]
 [ext_resource type="Texture2D" uid="uid://dv6chtf7xegy4" path="res://assets/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/01_idle/01_idle_7.png" id="22_55fs0"]
 [ext_resource type="Texture2D" uid="uid://esuqpb7sqsa" path="res://assets/Elementals_metal_bladekeeper_FREE_v1.1/PNG animations/01_idle/01_idle_8.png" id="23_0vrb3"]
+[ext_resource type="PackedScene" uid="uid://6mebakego8no" path="res://scenes/characters/stats.tscn" id="24_vce4h"]
+[ext_resource type="Resource" uid="uid://0ndg5de6mb5g" path="res://resources/Arsen.tres" id="25_2eh1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul7bp"]
 atlas = ExtResource("1_jjn2t")
@@ -642,9 +645,13 @@ animations = [{
 }]
 
 [node name="Arsen" type="CharacterBody2D"]
+script = ExtResource("1_jykdt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -256)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_e6bht")
 animation = &"attack_1"
+
+[node name="Stats" parent="." instance=ExtResource("24_vce4h")]
+starting_stats = ExtResource("25_2eh1b")

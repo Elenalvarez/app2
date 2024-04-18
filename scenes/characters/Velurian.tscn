@@ -1,6 +1,9 @@
-[gd_scene load_steps=126 format=3 uid="uid://bp0en5yiusj12"]
+[gd_scene load_steps=129 format=3 uid="uid://bp0en5yiusj12"]
 
 [ext_resource type="Texture2D" uid="uid://dqmq2vodjlfdm" path="res://assets/elementals_wind_hashashin_FREE_v1.1/wind_SpriteSheet_288x128.png" id="1_dunlr"]
+[ext_resource type="Script" path="res://scripts/Character.gd" id="1_pet42"]
+[ext_resource type="PackedScene" uid="uid://6mebakego8no" path="res://scenes/characters/stats.tscn" id="2_7jodq"]
+[ext_resource type="Resource" uid="uid://dw7oxga0vg25m" path="res://resources/Velurian.tres" id="3_ew27q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e6pd"]
 atlas = ExtResource("1_dunlr")
@@ -907,6 +910,7 @@ animations = [{
 }]
 
 [node name="Velurian" type="CharacterBody2D"]
+script = ExtResource("1_pet42")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -256)
@@ -914,3 +918,6 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ffo03")
 animation = &"idle"
 flip_h = true
+
+[node name="Stats" parent="." instance=ExtResource("2_7jodq")]
+starting_stats = ExtResource("3_ew27q")

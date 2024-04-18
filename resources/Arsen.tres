@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StartingStats" load_steps=2 format=3 uid="uid://0ndg5de6mb5g"]
+
+[ext_resource type="Script" path="res://scripts/StartingStats.gd" id="1_7mcev"]
+
+[resource]
+script = ExtResource("1_7mcev")
+my_name = "Arsen"
+max_hp = 100
+max_mana = 100
+damage = 10
+defense = 10
+heal = 10
+movement = 4
