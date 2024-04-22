@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dao173l40mql2"
-path="res://.godot/imported/bar.png-0f922a84dbd906b95025769a551f164b.ctex"
+uid="uid://drqgurxiiylsh"
+path="res://.godot/imported/cage_movement.png-1f7954a606f7cd6f22e8f246e6cc2058.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bar.png"
-dest_files=["res://.godot/imported/bar.png-0f922a84dbd906b95025769a551f164b.ctex"]
+source_file="res://assets/UI/cage_movement.png"
+dest_files=["res://.godot/imported/cage_movement.png-1f7954a606f7cd6f22e8f246e6cc2058.ctex"]
 
 [params]
 

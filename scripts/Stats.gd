@@ -4,6 +4,8 @@ class_name Stats
 signal hp_changed(new_hp)
 signal hp_depleted()
 
+const MANA_INCREASE = 10
+
 @export var starting_stats: Resource
 
 var my_name: String
@@ -27,22 +29,28 @@ func _ready():
 	hp = max_hp
 	mana = 0
 
-func set_max_hp(value):
+func set_max_hp(value: int):
 	max_hp = max(0, value)
 
-func set_max_mana(value):
+func set_max_mana(value: int):
 	max_mana = max(0, value)
+
+func increase_mana(mult: int):
+	mana += mult * MANA_INCREASE
+
+func make_damage(mult_attack: int):
+	return damage * mult_attack
 
 func take_damage(hit: int, mult_defense: int):
 	var def = defense * mult_defense
 	var dam = hit - def
-	hp = max(0, hp-dam)
+	hp = max(0, hp - dam)
 	emit_signal("hp_changed", hp)
 	if hp == 0:
 		emit_signal("hp_depleted")
 
-func healing(heal_mult: int):
-	hp = max(max_hp, hp + heal*heal_mult)
+func healing(mult_heal: int):
+	hp = max(max_hp, hp + heal * mult_heal)
 	emit_signal("hp_changed", hp)
 
 

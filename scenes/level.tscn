@@ -1,13 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgxhyg5ploy3t"]
+[gd_scene load_steps=16 format=3 uid="uid://c1t63727h7wjs"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_edljl"]
 [ext_resource type="PackedScene" uid="uid://bp0en5yiusj12" path="res://scenes/characters/Velurian.tscn" id="2_4ae6g"]
 [ext_resource type="Texture2D" uid="uid://51hpgmxj3fv8" path="res://assets/bloques/2048.png" id="3_e3s88"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="4_tpmkl"]
 [ext_resource type="Script" path="res://scripts/TouchControl.gd" id="5_gds8b"]
+[ext_resource type="Texture2D" uid="uid://dao173l40mql2" path="res://assets/UI/health_bar.png" id="6_0x2o7"]
 [ext_resource type="Script" path="res://scripts/HealthBar.gd" id="6_13h7c"]
-[ext_resource type="Texture2D" uid="uid://dao173l40mql2" path="res://assets/bar.png" id="6_wnjj8"]
-[ext_resource type="Texture2D" uid="uid://diu4uny44vvvb" path="res://assets/health_background.png" id="7_f17ho"]
+[ext_resource type="Texture2D" uid="uid://diu4uny44vvvb" path="res://assets/UI/health_background.png" id="7_f17ho"]
+[ext_resource type="Texture2D" uid="uid://dmgh8mvl1ghfc" path="res://assets/UI/mana_bar.png" id="9_8kkqk"]
+[ext_resource type="Texture2D" uid="uid://bonqfy8vsu2wa" path="res://assets/UI/mana_background.png" id="10_n7xet"]
+[ext_resource type="Script" path="res://scripts/ManaBar.gd" id="11_y0na4"]
+[ext_resource type="Texture2D" uid="uid://cx8fs2qeu88kh" path="res://assets/UI/health_bar_enemy.png" id="12_tslit"]
+[ext_resource type="Texture2D" uid="uid://dwsmnkxdx5sqn" path="res://assets/UI/health_background_enemy.png" id="13_eyifu"]
+[ext_resource type="Texture2D" uid="uid://drqgurxiiylsh" path="res://assets/UI/cage_movement.png" id="14_oca1n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfbwq"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_edljl")
@@ -110,15 +118,54 @@ offset_left = 66.0
 offset_top = 815.0
 offset_right = 466.0
 offset_bottom = 897.0
-texture_over = ExtResource("6_wnjj8")
+texture_over = ExtResource("6_0x2o7")
 texture_progress = ExtResource("7_f17ho")
 script = ExtResource("6_13h7c")
 
+[node name="ArsenManaBar" type="TextureProgressBar" parent="."]
+offset_left = 66.0
+offset_top = 873.0
+offset_right = 466.0
+offset_bottom = 948.0
+texture_over = ExtResource("9_8kkqk")
+texture_progress = ExtResource("10_n7xet")
+script = ExtResource("11_y0na4")
+
 [node name="EnemyHealthBar" type="TextureProgressBar" parent="."]
-offset_left = 564.0
-offset_top = 811.0
-offset_right = 1034.0
-offset_bottom = 939.0
+offset_left = 616.0
+offset_top = 816.0
+offset_right = 1016.0
+offset_bottom = 891.0
+texture_over = ExtResource("12_tslit")
+texture_progress = ExtResource("13_eyifu")
 script = ExtResource("6_13h7c")
+
+[node name="Cage_movement" type="TextureRect" parent="."]
+offset_left = 464.0
+offset_top = 808.0
+offset_right = 614.0
+offset_bottom = 958.0
+texture = ExtResource("14_oca1n")
+
+[node name="TextEdit" type="TextEdit" parent="Cage_movement"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -51.5
+offset_right = 17.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wfbwq")
+wrap_mode = 1
+scroll_fit_content_height = true
 
 [connection signal="move" from="TouchControl" to="Grid" method="_on_touch_control_move"]

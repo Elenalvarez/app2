@@ -9,24 +9,33 @@ preload("res://scenes/blocks/defend_block.tscn"),
 preload("res://scenes/blocks/heal_block.tscn")]
 
 @onready var grid = $GridContainer
+@onready var level: level = get_parent()
 
 
 func _ready():
-	add_piece()
+	add_piece(2)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		move_up()
-		add_piece()
+		await get_tree().create_timer(0.2).timeout
+		add_piece(1)
+		level.make_movement()
 	if Input.is_action_just_pressed("ui_down"):
 		move_down()
-		add_piece()
+		await get_tree().create_timer(0.2).timeout
+		add_piece(1)
+		level.make_movement()
 	if Input.is_action_just_pressed("ui_left"):
 		move_left()
-		add_piece()
+		await get_tree().create_timer(0.2).timeout
+		add_piece(1)
+		level.make_movement()
 	if Input.is_action_just_pressed("ui_right"):
 		move_right()
-		add_piece()
+		await get_tree().create_timer(0.2).timeout
+		add_piece(1)
+		level.make_movement()
 
 func _on_touch_control_move(direction: Vector2):
 	pass 
@@ -163,10 +172,10 @@ func move_right():
 						
 				container.get_child(0).free()
 
-func add_piece():
+func add_piece(num_pieces: int):
 	if is_blank_space():
 		var blocks_mades = 0
-		while blocks_mades < 2:
+		while blocks_mades < num_pieces:
 			var row = int(randi_range(0,height-1))
 			var column = int(randi_range(0,width-1))
 			var type = int(randi_range(0, blocks.size()-1))
@@ -184,5 +193,46 @@ func get_container_name(row: int, column: int):
 	var name = "CenterContainer" + str(number)
 	return name
 
-
+func get_max_block():
+	var val_max = 0
+	var blocks: Array
+	var coord: Array
+	var result_block
+	var result_coords
+	var result_container
+	
+	for i in height:
+		for j in width:
+			if board[i][j] != 0:
+				var container = grid.get_node(get_container_name(i, j))
+				var temp = container.get_child(0).duplicate()
+				if temp.get_value() == val_max:
+					blocks.push_back(temp)
+					coord.push_back([i, j])
+				if temp.get_value() > val_max:
+					val_max = temp.get_value()
+					blocks.clear()
+					coord.clear()
+					blocks.push_back(temp)
+					coord.push_back([i, j])
+	
+	if blocks.size() > 1:
+		var ind = int(randi_range(0, blocks.size()-1))
+		result_block = blocks[ind]
+		result_coords = coord[ind]
+		result_container = grid.get_node(get_container_name(result_coords[0], result_coords[1]))
+	else:
+		result_block = blocks[0]
+		result_coords = coord[0]
+		result_container = grid.get_node(get_container_name(result_coords[0], result_coords[1]))
+	
+	if result_block.get_block_name() == "DamageBlock":
+		level.attack_turn(result_block.get_value())
+	if result_block.get_block_name() == "DefendBlock":
+		level.defend_turn(result_block.get_value())
+	if result_block.get_block_name() == "HealBlock":
+		level.heal_turn(result_block.get_value())
+	
+	board[result_coords[0]][result_coords[1]] = 0
+	result_container.get_child(0).free()
 
