@@ -651,9 +651,7 @@ script = ExtResource("1_jykdt")
 position = Vector2(2, -256)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_e6bht")
-animation = &"attack_3"
-frame = 17
-frame_progress = 1.0
+animation = &"defense"
 
 [node name="Stats" parent="." instance=ExtResource("24_vce4h")]
 starting_stats = ExtResource("25_2eh1b")

@@ -33,11 +33,22 @@ func make_damage(mult_attack: int):
 			animated_sprite.play("attack_2")
 		7, 8, 9:
 			animated_sprite.play("attack_3")
-		
+		10:
+			animated_sprite.play("attack_ultimate")
+			stats.mana = 0
 	return stats.make_damage(mult_attack)
 
 func take_damage(hit: int, mult_defense: int):
+	if mult_defense == 0:
+		animated_sprite.play("take_hit")
+	else:
+		animated_sprite.play("defense")
 	stats.take_damage(hit, mult_defense)
+	if is_death():
+		animated_sprite.play("death")
 
 func healing(mult_heal: int):
 	stats.healing(mult_heal)
+
+func is_death():
+	return stats.hp == 0

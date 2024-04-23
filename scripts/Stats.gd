@@ -36,21 +36,23 @@ func set_max_mana(value: int):
 	max_mana = max(0, value)
 
 func increase_mana(mult: int):
-	mana += mult * MANA_INCREASE
+	var mana_inc= mana + mult * MANA_INCREASE
+	mana = min(max_mana, mana_inc)
 
 func make_damage(mult_attack: int):
 	return damage * mult_attack
 
 func take_damage(hit: int, mult_defense: int):
 	var def = defense * mult_defense
-	var dam = hit - def
+	var dam = max(hit - def, 0)
 	hp = max(0, hp - dam)
 	emit_signal("hp_changed", hp)
 	if hp == 0:
 		emit_signal("hp_depleted")
 
 func healing(mult_heal: int):
-	hp = max(max_hp, hp + heal * mult_heal)
+	var hp_heal = hp + heal * mult_heal
+	hp = min(max_hp, hp_heal)
 	emit_signal("hp_changed", hp)
 
 

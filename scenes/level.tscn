@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1t63727h7wjs"]
+[gd_scene load_steps=24 format=3 uid="uid://c1t63727h7wjs"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_edljl"]
 [ext_resource type="PackedScene" uid="uid://bp0en5yiusj12" path="res://scenes/characters/Velurian.tscn" id="2_4ae6g"]
@@ -15,7 +15,23 @@
 [ext_resource type="Texture2D" uid="uid://dwsmnkxdx5sqn" path="res://assets/UI/health_background_enemy.png" id="13_eyifu"]
 [ext_resource type="Texture2D" uid="uid://drqgurxiiylsh" path="res://assets/UI/cage_movement.png" id="14_oca1n"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ievsx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ec8a0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugh04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f11gy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n6ug"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1vrc"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfbwq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ef60l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xug7f"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_edljl")
@@ -122,6 +138,31 @@ texture_over = ExtResource("6_0x2o7")
 texture_progress = ExtResource("7_f17ho")
 script = ExtResource("6_13h7c")
 
+[node name="TextEdit" type="TextEdit" parent="ArsenHealthBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -40.5
+offset_right = 42.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ievsx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ec8a0")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_ugh04")
+text = "100"
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
 [node name="ArsenManaBar" type="TextureProgressBar" parent="."]
 offset_left = 66.0
 offset_top = 873.0
@@ -139,6 +180,29 @@ offset_bottom = 891.0
 texture_over = ExtResource("12_tslit")
 texture_progress = ExtResource("13_eyifu")
 script = ExtResource("6_13h7c")
+
+[node name="TextEdit" type="TextEdit" parent="EnemyHealthBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -37.5
+offset_right = 45.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f11gy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8n6ug")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_t1vrc")
+text = "100"
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
 
 [node name="Cage_movement" type="TextureRect" parent="."]
 offset_left = 464.0
@@ -160,11 +224,14 @@ offset_right = 17.5
 offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/background_color = Color(0, 0, 0, 0)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wfbwq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ef60l")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_xug7f")
+editable = false
 wrap_mode = 1
 scroll_fit_content_height = true
 

@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cujdf3u4jnn3l"]
+[gd_scene load_steps=6 format=3 uid="uid://cujdf3u4jnn3l"]
 
 [ext_resource type="Script" path="res://scripts/block.gd" id="1_fs1be"]
 [ext_resource type="Texture2D" uid="uid://thglpw7u838g" path="res://assets/bloques/pixil-layer-defense.png" id="1_gqyc8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xtral"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unfg2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_neww5"]
 
 [node name="DefendBlock" type="Node2D"]
 script = ExtResource("1_fs1be")
@@ -28,8 +32,12 @@ offset_bottom = 141.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xtral")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_unfg2")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_neww5")
 placeholder_text = "x1"
+editable = false
 scroll_fit_content_height = true

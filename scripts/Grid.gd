@@ -4,6 +4,10 @@ var height: int = 4
 var width: int = 4
 var board: Array = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
 
+var startPos: Vector2
+var curPos: Vector2
+var swiping = false
+
 var blocks = [preload("res://scenes/blocks/damage_block.tscn"),
 preload("res://scenes/blocks/defend_block.tscn"),
 preload("res://scenes/blocks/heal_block.tscn")]
@@ -36,9 +40,42 @@ func _process(delta):
 		await get_tree().create_timer(0.2).timeout
 		add_piece(1)
 		level.make_movement()
+	if Input.is_action_just_pressed("press"):
+		if !swiping:
+			swiping = true
+			startPos = get_global_mouse_position()
+	
+	if Input.is_action_pressed("press"):
+		if swiping:
+			curPos= get_global_mouse_position()
+			if startPos.distance_to(curPos) >= 100:
+				if abs(startPos.y - curPos.y) <= 10:
+					if startPos.x > curPos.x:
+						print("<-")
+						move_left()
+						add_piece(1)
+						level.make_movement()
+					else:
+						print("->")
+						move_right()
+						add_piece(1)
+						level.make_movement()
+					swiping = false
+				elif abs(startPos.x - curPos.x) <= 10:
+					if startPos.y > curPos.y:
+						print("^")
+						move_up()
+						add_piece(1)
+						level.make_movement()
+					else:
+						print("v")
+						move_down()
+						add_piece(1)
+						level.make_movement()
+					swiping = false
 
-func _on_touch_control_move(direction: Vector2):
-	pass 
+func _on_touch_control_move():
+	pass
 
 func is_blank_space():
 	var blank = false

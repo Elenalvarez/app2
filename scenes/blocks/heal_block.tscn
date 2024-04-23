@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3xhunt56wph3"]
+[gd_scene load_steps=6 format=3 uid="uid://b3xhunt56wph3"]
 
 [ext_resource type="Texture2D" uid="uid://bwo2j3rmn5c3p" path="res://assets/bloques/pixil-layer-Heal.png" id="1_gan0f"]
 [ext_resource type="Script" path="res://scripts/block.gd" id="1_sgxqy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4rwy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gd3id"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m57rk"]
 
 [node name="HealBlock" type="Node2D"]
 script = ExtResource("1_sgxqy")
@@ -28,8 +32,12 @@ offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_s4rwy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gd3id")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_m57rk")
 placeholder_text = "x1"
+editable = false
 scroll_fit_content_height = true

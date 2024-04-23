@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dip80minmj1rp"]
+[gd_scene load_steps=6 format=3 uid="uid://dip80minmj1rp"]
 
 [ext_resource type="Texture2D" uid="uid://c3nd38jadgdth" path="res://assets/bloques/pixil-layer-Attack.png" id="1_0w24n"]
 [ext_resource type="Script" path="res://scripts/block.gd" id="1_obv0q"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0f3v"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgalr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_il23c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdqkj"]
 
 [node name="DamageBlock" type="Node2D"]
 script = ExtResource("1_obv0q")
@@ -29,8 +33,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/background_color = Color(0, 0, 0, 0)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_d0f3v")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pgalr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_il23c")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_hdqkj")
 placeholder_text = "x1"
+editable = false
 scroll_fit_content_height = true
