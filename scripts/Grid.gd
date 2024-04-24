@@ -1,9 +1,11 @@
 extends Node2D
 
+#variables para la grid
 var height: int = 4
 var width: int = 4
 var board: Array = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
 
+#variables para el swipe
 var startPos: Vector2
 var curPos: Vector2
 var swiping = false
@@ -73,9 +75,6 @@ func _process(delta):
 						add_piece(1)
 						level.make_movement()
 					swiping = false
-
-func _on_touch_control_move():
-	pass
 
 func is_blank_space():
 	var blank = false

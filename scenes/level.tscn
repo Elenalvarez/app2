@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://c1t63727h7wjs"]
+[gd_scene load_steps=33 format=3 uid="uid://c1t63727h7wjs"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_edljl"]
 [ext_resource type="PackedScene" uid="uid://bp0en5yiusj12" path="res://scenes/characters/Velurian.tscn" id="2_4ae6g"]
 [ext_resource type="Texture2D" uid="uid://51hpgmxj3fv8" path="res://assets/bloques/2048.png" id="3_e3s88"]
+[ext_resource type="Texture2D" uid="uid://djxlykrew3oto" path="res://assets/UI/Lucid-V1.2/Lucid V1.2/PNG/Flat/64/Chevron-Arrow-Left.png" id="4_ofdtt"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="4_tpmkl"]
 [ext_resource type="Script" path="res://scripts/TouchControl.gd" id="5_gds8b"]
 [ext_resource type="Texture2D" uid="uid://dao173l40mql2" path="res://assets/UI/health_bar.png" id="6_0x2o7"]
@@ -14,6 +15,22 @@
 [ext_resource type="Texture2D" uid="uid://cx8fs2qeu88kh" path="res://assets/UI/health_bar_enemy.png" id="12_tslit"]
 [ext_resource type="Texture2D" uid="uid://dwsmnkxdx5sqn" path="res://assets/UI/health_background_enemy.png" id="13_eyifu"]
 [ext_resource type="Texture2D" uid="uid://drqgurxiiylsh" path="res://assets/UI/cage_movement.png" id="14_oca1n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_seuql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cuv1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8tqu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1atr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0rok"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1sud"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7quh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26iyv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ievsx"]
 
@@ -41,6 +58,42 @@ enemy_type = ExtResource("2_4ae6g")
 offset_right = 1080.0
 offset_bottom = 2160.0
 texture = ExtResource("3_e3s88")
+
+[node name="GoBackButton" type="Button" parent="TextureRect"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 59.0
+offset_bottom = 79.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_seuql")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cuv1s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8tqu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1atr8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h0rok")
+icon = ExtResource("4_ofdtt")
+flat = true
+
+[node name="Win" type="TextEdit" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 150.0
+offset_right = 157.0
+offset_bottom = 244.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u1sud")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h7quh")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_26iyv")
+text = "YOU WIN"
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("4_tpmkl")
@@ -235,4 +288,5 @@ editable = false
 wrap_mode = 1
 scroll_fit_content_height = true
 
+[connection signal="pressed" from="TextureRect/GoBackButton" to="." method="_on_go_back_button_pressed"]
 [connection signal="move" from="TouchControl" to="Grid" method="_on_touch_control_move"]

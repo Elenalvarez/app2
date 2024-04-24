@@ -12,6 +12,7 @@ const ARSEN = preload("res://scenes/characters/Arsen.tscn")
 @onready var movement: TextEdit = get_node("Cage_movement/TextEdit")
 @onready var arsen_health_number = get_node("ArsenHealthBar/TextEdit")
 @onready var enemy_health_number = get_node("EnemyHealthBar/TextEdit")
+@onready var victory_tag:TextEdit = get_node("TextureRect/Win")
 
 @export var enemy_type: PackedScene
 
@@ -49,7 +50,6 @@ func make_movement():
 	movs -= 1
 	movement.text = str(movs)
 	if movs == 0:
-		await get_tree().create_timer(5)
 		grid.get_max_block()
 		movs = max_movs
 		movement.text = str(movs)
@@ -71,6 +71,8 @@ func attack_turn(mult: int):
 	#ataca el enemigo
 	if not enemy.is_death():
 		enemy_attack()
+	else:
+		victory_tag.visible = true
 	
 	#sube el maná
 	increase_mana(mult_normal)
@@ -107,4 +109,5 @@ func enemy_attack():
 	arsen_health_number.text = str(arsen.get_hp())
 	await arsen.animated_sprite.animation_finished
 
-
+func _on_go_back_button_pressed():
+	print("Al mundo")
