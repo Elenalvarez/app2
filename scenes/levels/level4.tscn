@@ -1,0 +1,292 @@
+[gd_scene load_steps=33 format=3 uid="uid://b1062qq3411s0"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_m2f0f"]
+[ext_resource type="PackedScene" uid="uid://whkeso7uktkn" path="res://scenes/characters/Kai.tscn" id="2_7shl2"]
+[ext_resource type="Texture2D" uid="uid://51hpgmxj3fv8" path="res://assets/bloques/2048.png" id="3_67py8"]
+[ext_resource type="Texture2D" uid="uid://djxlykrew3oto" path="res://assets/UI/Lucid-V1.2/Lucid V1.2/PNG/Flat/64/Chevron-Arrow-Left.png" id="4_yyo8g"]
+[ext_resource type="Script" path="res://scripts/Grid.gd" id="5_ba7cf"]
+[ext_resource type="Script" path="res://scripts/TouchControl.gd" id="6_nev5g"]
+[ext_resource type="Texture2D" uid="uid://dao173l40mql2" path="res://assets/UI/health_bar.png" id="7_kf1yt"]
+[ext_resource type="Texture2D" uid="uid://diu4uny44vvvb" path="res://assets/UI/health_background.png" id="8_fj0fs"]
+[ext_resource type="Script" path="res://scripts/HealthBar.gd" id="9_fgilr"]
+[ext_resource type="Texture2D" uid="uid://dmgh8mvl1ghfc" path="res://assets/UI/mana_bar.png" id="10_4ycvv"]
+[ext_resource type="Texture2D" uid="uid://bonqfy8vsu2wa" path="res://assets/UI/mana_background.png" id="11_nv846"]
+[ext_resource type="Script" path="res://scripts/ManaBar.gd" id="12_rbepq"]
+[ext_resource type="Texture2D" uid="uid://cx8fs2qeu88kh" path="res://assets/UI/health_bar_enemy.png" id="13_20m8b"]
+[ext_resource type="Texture2D" uid="uid://dwsmnkxdx5sqn" path="res://assets/UI/health_background_enemy.png" id="14_s8qyv"]
+[ext_resource type="Texture2D" uid="uid://drqgurxiiylsh" path="res://assets/UI/cage_movement.png" id="15_312sc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_seuql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cuv1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8tqu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1atr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0rok"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1sud"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7quh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26iyv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ievsx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ec8a0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugh04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f11gy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n6ug"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1vrc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfbwq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ef60l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xug7f"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_m2f0f")
+enemy_type = ExtResource("2_7shl2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 2160.0
+texture = ExtResource("3_67py8")
+
+[node name="GoBackButton" type="Button" parent="TextureRect"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 59.0
+offset_bottom = 79.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_seuql")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cuv1s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8tqu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1atr8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h0rok")
+icon = ExtResource("4_yyo8g")
+flat = true
+
+[node name="Win" type="TextEdit" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 150.0
+offset_right = 157.0
+offset_bottom = 244.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u1sud")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h7quh")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_26iyv")
+text = "YOU WIN"
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("5_ba7cf")
+
+[node name="GridContainer" type="GridContainer" parent="Grid"]
+offset_left = 95.0
+offset_top = 998.0
+offset_right = 1000.0
+offset_bottom = 1903.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 33
+theme_override_constants/v_separation = 33
+columns = 4
+
+[node name="CenterContainer1" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer3" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer4" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer5" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer6" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer7" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer8" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer9" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer10" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer11" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer12" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer13" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer14" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer15" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="CenterContainer16" type="CenterContainer" parent="Grid/GridContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TouchControl" type="Node2D" parent="."]
+script = ExtResource("6_nev5g")
+
+[node name="ArsenMarker" type="Marker2D" parent="."]
+position = Vector2(271, 652)
+
+[node name="EnemyMarker" type="Marker2D" parent="."]
+position = Vector2(773, 652)
+
+[node name="ArsenHealthBar" type="TextureProgressBar" parent="."]
+offset_left = 66.0
+offset_top = 815.0
+offset_right = 466.0
+offset_bottom = 897.0
+texture_over = ExtResource("7_kf1yt")
+texture_progress = ExtResource("8_fj0fs")
+script = ExtResource("9_fgilr")
+
+[node name="TextEdit" type="TextEdit" parent="ArsenHealthBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -40.5
+offset_right = 42.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ievsx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ec8a0")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_ugh04")
+text = "100"
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="ArsenManaBar" type="TextureProgressBar" parent="."]
+offset_left = 66.0
+offset_top = 873.0
+offset_right = 466.0
+offset_bottom = 948.0
+texture_over = ExtResource("10_4ycvv")
+texture_progress = ExtResource("11_nv846")
+script = ExtResource("12_rbepq")
+
+[node name="EnemyHealthBar" type="TextureProgressBar" parent="."]
+offset_left = 616.0
+offset_top = 816.0
+offset_right = 1016.0
+offset_bottom = 891.0
+texture_over = ExtResource("13_20m8b")
+texture_progress = ExtResource("14_s8qyv")
+script = ExtResource("9_fgilr")
+
+[node name="TextEdit" type="TextEdit" parent="EnemyHealthBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -37.5
+offset_right = 56.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f11gy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8n6ug")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_t1vrc")
+text = "1000"
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="Cage_movement" type="TextureRect" parent="."]
+offset_left = 464.0
+offset_top = 808.0
+offset_right = 614.0
+offset_bottom = 958.0
+texture = ExtResource("15_312sc")
+
+[node name="TextEdit" type="TextEdit" parent="Cage_movement"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -51.5
+offset_right = 17.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wfbwq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ef60l")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_xug7f")
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[connection signal="pressed" from="TextureRect/GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="move" from="TouchControl" to="Grid" method="_on_touch_control_move"]

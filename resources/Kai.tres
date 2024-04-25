@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StartingStats" load_steps=2 format=3 uid="uid://ctaoablgwadnx"]
+
+[ext_resource type="Script" path="res://scripts/StartingStats.gd" id="1_urllr"]
+
+[resource]
+script = ExtResource("1_urllr")
+my_name = "Kai"
+max_hp = 1500
+max_mana = 0
+damage = 200
+defense = 150
+heal = 0
+movement = 0

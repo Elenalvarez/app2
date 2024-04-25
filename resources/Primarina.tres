@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StartingStats" load_steps=2 format=3 uid="uid://chnb0ati2ifir"]
+
+[ext_resource type="Script" path="res://scripts/StartingStats.gd" id="1_tq8to"]
+
+[resource]
+script = ExtResource("1_tq8to")
+my_name = "Primarina"
+max_hp = 250
+max_mana = 0
+damage = 50
+defense = 50
+heal = 0
+movement = 0

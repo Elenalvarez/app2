@@ -1,7 +1,8 @@
 extends Node2D
 class_name level
 
-const ARSEN = preload("res://scenes/characters/Arsen.tscn")
+var ARSEN = load("res://scenes/characters/Arsen.tscn")
+var main =  load("res://scenes/main.tscn")
 
 @onready var grid = get_node("Grid")
 @onready var arsen_position = get_node("ArsenMarker")
@@ -110,4 +111,4 @@ func enemy_attack():
 	await arsen.animated_sprite.animation_finished
 
 func _on_go_back_button_pressed():
-	print("Al mundo")
+	get_tree().change_scene_to_packed(main)
