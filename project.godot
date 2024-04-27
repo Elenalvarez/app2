@@ -39,6 +39,10 @@ press={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translation.en.translation", "res://Translation.es.translation", "res://Translation.fr.translation")
+
 [rendering]
 
 renderer/rendering_method="mobile"
