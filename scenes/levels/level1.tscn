@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1t63727h7wjs"]
+[gd_scene load_steps=24 format=3 uid="uid://c1t63727h7wjs"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_edljl"]
 [ext_resource type="PackedScene" uid="uid://bp0en5yiusj12" path="res://scenes/characters/Velurian.tscn" id="2_4ae6g"]
 [ext_resource type="Texture2D" uid="uid://51hpgmxj3fv8" path="res://assets/bloques/2048.png" id="3_e3s88"]
 [ext_resource type="Texture2D" uid="uid://djxlykrew3oto" path="res://assets/UI/Lucid-V1.2/Lucid V1.2/PNG/Flat/64/Chevron-Arrow-Left.png" id="4_ofdtt"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="4_tpmkl"]
-[ext_resource type="Script" path="res://scripts/TouchControl.gd" id="5_gds8b"]
 [ext_resource type="Texture2D" uid="uid://dao173l40mql2" path="res://assets/UI/health_bar.png" id="6_0x2o7"]
 [ext_resource type="Script" path="res://scripts/HealthBar.gd" id="6_13h7c"]
 [ext_resource type="Texture2D" uid="uid://diu4uny44vvvb" path="res://assets/UI/health_background.png" id="7_f17ho"]
@@ -28,27 +27,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u1sud"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7quh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26iyv"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ievsx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ec8a0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugh04"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f11gy"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8n6ug"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1vrc"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfbwq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ef60l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xug7f"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_edljl")
@@ -73,27 +56,37 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_h0rok")
 icon = ExtResource("4_ofdtt")
 flat = true
 
-[node name="Win" type="TextEdit" parent="TextureRect"]
+[node name="Win" type="Label" parent="TextureRect"]
 visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -157.0
+offset_left = -147.5
 offset_top = 150.0
-offset_right = 157.0
+offset_right = 147.5
 offset_bottom = 244.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxEmpty_u1sud")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_h7quh")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_26iyv")
 text = "YOU WIN"
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
+
+[node name="Lose" type="Label" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -147.5
+offset_top = 150.0
+offset_right = 147.5
+offset_bottom = 244.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u1sud")
+text = "YOU LOSE"
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("4_tpmkl")
@@ -173,9 +166,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 
-[node name="TouchControl" type="Node2D" parent="."]
-script = ExtResource("5_gds8b")
-
 [node name="ArsenMarker" type="Marker2D" parent="."]
 position = Vector2(271, 652)
 
@@ -191,7 +181,7 @@ texture_over = ExtResource("6_0x2o7")
 texture_progress = ExtResource("7_f17ho")
 script = ExtResource("6_13h7c")
 
-[node name="TextEdit" type="TextEdit" parent="ArsenHealthBar"]
+[node name="TextEdit" type="Label" parent="ArsenHealthBar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -199,22 +189,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -42.5
-offset_top = -40.5
+offset_top = -33.0
 offset_right = 42.5
-offset_bottom = 40.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
-theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ievsx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ec8a0")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_ugh04")
-text = "100"
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
 
 [node name="ArsenManaBar" type="TextureProgressBar" parent="."]
 offset_left = 66.0
@@ -234,7 +216,7 @@ texture_over = ExtResource("12_tslit")
 texture_progress = ExtResource("13_eyifu")
 script = ExtResource("6_13h7c")
 
-[node name="TextEdit" type="TextEdit" parent="EnemyHealthBar"]
+[node name="TextEdit" type="Label" parent="EnemyHealthBar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -242,20 +224,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -45.5
-offset_top = -37.5
+offset_top = -33.0
 offset_right = 45.5
-offset_bottom = 37.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f11gy")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8n6ug")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_t1vrc")
-text = "100"
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
 
 [node name="Cage_movement" type="TextureRect" parent="."]
 offset_left = 464.0
@@ -264,7 +239,7 @@ offset_right = 614.0
 offset_bottom = 958.0
 texture = ExtResource("14_oca1n")
 
-[node name="TextEdit" type="TextEdit" parent="Cage_movement"]
+[node name="TextEdit" type="Label" parent="Cage_movement"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -278,15 +253,7 @@ offset_bottom = 51.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
-theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wfbwq")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ef60l")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_xug7f")
-editable = false
-wrap_mode = 1
-scroll_fit_content_height = true
 
 [connection signal="pressed" from="TextureRect/GoBackButton" to="." method="_on_go_back_button_pressed"]
-[connection signal="move" from="TouchControl" to="Grid" method="_on_touch_control_move"]

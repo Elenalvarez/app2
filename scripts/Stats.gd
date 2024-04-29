@@ -17,6 +17,7 @@ var damage: int
 var defense: int
 var heal: int
 var movement: int
+var money: int
 
 func _ready():
 	my_name = starting_stats.my_name
@@ -26,6 +27,7 @@ func _ready():
 	defense = starting_stats.defense
 	heal = starting_stats.heal
 	movement = starting_stats.movement
+	money = starting_stats.money
 	hp = max_hp
 	mana = 0
 
@@ -38,6 +40,9 @@ func set_max_mana(value: int):
 func increase_mana(mult: int):
 	var mana_inc= mana + mult * MANA_INCREASE
 	mana = min(max_mana, mana_inc)
+
+func increase_money(cant: int):
+	money += cant
 
 func make_damage(mult_attack: int):
 	return damage * mult_attack

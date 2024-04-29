@@ -8,3 +8,4 @@ class_name StartingStats
 @export var defense: int
 @export var heal: int
 @export var movement: int
+@export var money: int

@@ -10,10 +10,11 @@ var main =  load("res://scenes/main.tscn")
 @onready var arsen_health_bar: HealthBar = get_node("ArsenHealthBar")
 @onready var arsen_mana_bar: ManaBar = get_node("ArsenManaBar")
 @onready var enemy_health_bar: HealthBar = get_node("EnemyHealthBar")
-@onready var movement: TextEdit = get_node("Cage_movement/TextEdit")
+@onready var movement = get_node("Cage_movement/TextEdit")
 @onready var arsen_health_number = get_node("ArsenHealthBar/TextEdit")
 @onready var enemy_health_number = get_node("EnemyHealthBar/TextEdit")
-@onready var victory_tag:TextEdit = get_node("TextureRect/Win")
+@onready var victory_tag = get_node("TextureRect/Win")
+@onready var defeat_tag = get_node("TextureRect/Lose")
 
 @export var enemy_type: PackedScene
 
@@ -70,10 +71,16 @@ func attack_turn(mult: int):
 	await enemy.animated_sprite.animation_finished
 	
 	#ataca el enemigo
-	if not enemy.is_death():
+	if not enemy.is_dead():
 		enemy_attack()
 	else:
 		victory_tag.visible = true
+		Arsen.increase_money(100)
+		get_tree().paused = true
+		await get_tree().create_timer(3).timeout
+		get_tree().paused = false
+		get_tree().change_scene_to_packed(main)
+		
 	
 	#sube el maná
 	increase_mana(mult_normal)
@@ -109,6 +116,13 @@ func enemy_attack():
 	arsen_health_bar.update()
 	arsen_health_number.text = str(arsen.get_hp())
 	await arsen.animated_sprite.animation_finished
+	if arsen.is_dead():
+		defeat_tag.visible = true
+		get_tree().paused = true
+		await get_tree().create_timer(3).timeout
+		get_tree().paused = false
+		get_tree().change_scene_to_packed(main)
+		
 
 func _on_go_back_button_pressed():
 	get_tree().change_scene_to_packed(main)

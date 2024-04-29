@@ -19,11 +19,17 @@ func get_max_mana():
 func get_my_name():
 	return stats.my_name
 
+func get_my_money():
+	return stats.money
+
 func get_movements():
 	return stats.movement
 
 func increase_mana(mult: int):
 	stats.increase_mana(mult)
+
+func increase_money(cant: int):
+	stats.increase_money(cant)
 
 func make_damage(mult_attack: int):
 	match mult_attack:
@@ -44,11 +50,11 @@ func take_damage(hit: int, mult_defense: int):
 	else:
 		animated_sprite.play("defense")
 	stats.take_damage(hit, mult_defense)
-	if is_death():
+	if is_dead():
 		animated_sprite.play("death")
 
 func healing(mult_heal: int):
 	stats.healing(mult_heal)
 
-func is_death():
+func is_dead():
 	return stats.hp == 0
