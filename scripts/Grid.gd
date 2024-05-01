@@ -16,6 +16,7 @@ preload("res://scenes/blocks/heal_block.tscn")]
 
 @onready var grid = $GridContainer
 @onready var level: level = get_parent()
+@onready var animation = $AnimationPlayer
 
 
 func _ready():
@@ -85,6 +86,7 @@ func is_blank_space():
 	return blank
 
 func move_up():
+	animation.play("up")
 	for i in range(1, height):
 		for j in width:
 			if board[i][j] != 0:
@@ -116,6 +118,7 @@ func move_up():
 				container.get_child(0).free()
 
 func move_down():
+	animation.play("down")
 	for i in range(height-2, -1, -1):
 		for j in width:
 			if board[i][j] != 0:
@@ -147,6 +150,7 @@ func move_down():
 				container.get_child(0).free()
 
 func move_left():
+	animation.play("left")
 	for j in range(1, width):
 		for i in height:
 			if board[i][j] != 0:
@@ -178,6 +182,7 @@ func move_left():
 				container.get_child(0).free()
 
 func move_right():
+	animation.play("right")
 	for j in range(width-2, -1, -1):
 		for i in height:
 			if board[i][j] != 0:

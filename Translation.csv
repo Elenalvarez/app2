@@ -4,3 +4,17 @@ CHARACTER,Character,Personaje,Personnage
 SHOP,Shop,Tienda,Boutique
 MUSIC,Music,Música,Musique
 LANGUAGE,Language,Idioma,Langage
+WIN,Victory,Victoria,Victoire
+LOSE,Defeat,Derrota,Défaite
+HP,Hp,Vida,Vie
+MANA,Mana,Maná,Manne
+DAMAGE,Damage,Daño,Dommage
+DEFENSE,Defense,Defensa,Défendre
+HEAL,Heal,Curación,Guérison
+MOVEMENTS,Movements,Movimientos,Mouvements
+SWORD,Sword: +25 damage,Espada: +25 daño,Épée : +25 dégâts
+ARMOR,Armor: +25 defense,Armadura: +25 defensa,Armure : +25 en défense
+BOOK,Book: +25 healing,Libro: +25 curación,Livre : +25 de soins
+NECKLACE,Necklace: +100 hp,Collar: +100 vida,Collier : +100 de vie
+BOOTS,Boots: +1 movement,Botas: +1 movimiento,Bottes : +1 mouvement
+MESSAGE,You don't have enough money,No tienes suficiente dinero,Tu n'as pas assez d'argent

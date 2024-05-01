@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4rx5vocw5q1w"]
+[gd_scene load_steps=18 format=3 uid="uid://c4rx5vocw5q1w"]
 
 [ext_resource type="Texture2D" uid="uid://du4bcy44j5jae" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="1_4gd1x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_gxpw8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c5v03dowgttge" path="res://assets/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png" id="5_o4015"]
 [ext_resource type="Texture2D" uid="uid://de6s23rmsx1o7" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="6_cpxvc"]
 [ext_resource type="Texture2D" uid="uid://nphi0xa6y777" path="res://assets/UI/Pixel GUI Buttons pack 3.png" id="8_wcils"]
+[ext_resource type="PackedScene" uid="uid://cikliku8hy36m" path="res://scenes/ui.tscn" id="9_p28de"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhk1p"]
 texture = ExtResource("1_4gd1x")
@@ -897,6 +898,8 @@ offset_top = 141.0
 offset_right = 598.0
 offset_bottom = 184.0
 flat = true
+
+[node name="UI" parent="." instance=ExtResource("9_p28de")]
 
 [connection signal="pressed" from="ButtonL1" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ButtonL2" to="." method="_on_button_l_2_pressed"]

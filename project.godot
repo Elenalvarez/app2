@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 AudioPlayer="*res://scenes/audio_player.tscn"
 Arsen="*res://scenes/characters/Arsen.tscn"
-Ui="*res://scenes/ui.tscn"
 
 [display]
 

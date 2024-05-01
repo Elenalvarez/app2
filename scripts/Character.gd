@@ -4,20 +4,29 @@ class_name Character
 @onready var stats: Stats = get_node("Stats")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 
+func get_my_name():
+	return stats.my_name
+	
 func get_hp():
 	return stats.hp
-
-func get_mana():
-	return stats.mana
 
 func get_max_hp():
 	return stats.max_hp
 
+func get_mana():
+	return stats.mana
+
 func get_max_mana():
 	return stats.max_mana
 
-func get_my_name():
-	return stats.my_name
+func get_damage():
+	return stats.damage
+
+func get_defense():
+	return stats.defense
+
+func get_heal():
+	return stats.heal
 
 func get_my_money():
 	return stats.money

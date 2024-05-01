@@ -24,6 +24,9 @@ var arsen
 var enemy
 
 func _ready():
+	victory_tag.text = tr("WIN")
+	defeat_tag.text = tr("LOSE")
+	
 	var pj = ARSEN.instantiate()
 	pj.position = arsen_position.position
 	add_child(pj)

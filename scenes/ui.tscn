@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cikliku8hy36m"]
+[gd_scene load_steps=71 format=3 uid="uid://cikliku8hy36m"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_dtojt"]
 [ext_resource type="Texture2D" uid="uid://dnrdgjf0iuoee" path="res://assets/UI/Lucid-V1.2/Lucid V1.2/PNG/Flat/64/Gear.png" id="1_xl11g"]
@@ -11,6 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://l0evlyvg4ajf" path="res://assets/UI/Lucid-V1.2/Lucid V1.2/PNG/Flat/64/Chevron-Arrow-Down-brown.png" id="8_n3j1i"]
 [ext_resource type="Texture2D" uid="uid://ch3f0u3khjsug" path="res://assets/UI/panel.png" id="10_4rtcj"]
 [ext_resource type="Texture2D" uid="uid://bxjb3f4tdyb1" path="res://assets/UI/coin.png" id="10_017fe"]
+[ext_resource type="Texture2D" uid="uid://6n3y76shvk4i" path="res://assets/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/sword_01c.png" id="10_mgw1s"]
+[ext_resource type="Texture2D" uid="uid://cgg0nlm31rtqr" path="res://assets/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/coin_01d.png" id="11_8cr25"]
+[ext_resource type="Texture2D" uid="uid://bxn8256yvw4fb" path="res://assets/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/armor_01b.png" id="12_s5irk"]
+[ext_resource type="Texture2D" uid="uid://bi67uydukkupy" path="res://assets/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/book_02a.png" id="13_dva4v"]
+[ext_resource type="Texture2D" uid="uid://dg7tfx414ymu8" path="res://assets/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/necklace_02b.png" id="14_d80o5"]
+[ext_resource type="Texture2D" uid="uid://dodupa8hj66so" path="res://assets/Kyrises_16x16_RPG_Icon_Pack_V1.3/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/48x48/boots_01d.png" id="15_etqt3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j7sd"]
 
@@ -776,12 +782,58 @@ sources/2 = SubResource("TileSetAtlasSource_iksax")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yq5v"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1e55k"]
+bg_color = Color(0.388235, 0.211765, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24tvl"]
+bg_color = Color(0.388235, 0.211765, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwy8b"]
+bg_color = Color(0.784314, 0.494118, 0.368627, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obd27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgdd7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xw8q"]
+bg_color = Color(0.388235, 0.211765, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_733qd"]
+bg_color = Color(0.784314, 0.494118, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnvcp"]
+bg_color = Color(0.388235, 0.211765, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icrsy"]
+bg_color = Color(0.784314, 0.494118, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk8oj"]
+bg_color = Color(0.388235, 0.211765, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1anp2"]
+bg_color = Color(0.784314, 0.494118, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw2s7"]
+bg_color = Color(0.388235, 0.211765, 0.137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86n8b"]
+bg_color = Color(0.784314, 0.494118, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erius"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 5
+border_color = Color(0.729412, 0.729412, 0.729412, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_size = 10
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hvsog"]
 texture = ExtResource("10_4rtcj")
 
 [node name="UI" type="Control"]
 process_mode = 3
-z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1045,8 +1097,151 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_4s5wo")
 icon = ExtResource("5_7rkjt")
 flat = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -252.5
+offset_right = 292.0
+offset_bottom = 400.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Character/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HP" type="Label" parent="Character/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "HP: "
+autowrap_mode = 2
+language = "en"
+
+[node name="HP_number" type="Label" parent="Character/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Character/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Mana" type="Label" parent="Character/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "Mana: "
+autowrap_mode = 2
+language = "en"
+
+[node name="Mana_number" type="Label" parent="Character/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Character/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Damage" type="Label" parent="Character/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "Damage: "
+autowrap_mode = 2
+language = "en"
+
+[node name="Damage_number" type="Label" parent="Character/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Character/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Defense" type="Label" parent="Character/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "Defense: "
+autowrap_mode = 2
+language = "en"
+
+[node name="Defense_number" type="Label" parent="Character/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Character/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Heal" type="Label" parent="Character/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "Heal: "
+autowrap_mode = 2
+language = "en"
+
+[node name="Heal_number" type="Label" parent="Character/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Character/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Movements" type="Label" parent="Character/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "Movements: "
+autowrap_mode = 2
+language = "en"
+
+[node name="Movements_number" type="Label" parent="Character/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+"
+
 [node name="Shop" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 204.0
@@ -1103,14 +1298,223 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8yq5v")
 icon = ExtResource("5_7rkjt")
 flat = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -255.5
+offset_right = 265.0
+offset_bottom = 392.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_mgw1s")
+stretch_mode = 3
+
+[node name="Sword" type="Label" parent="Shop/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 32
+text = "Sword: +25 damage"
+vertical_alignment = 1
+autowrap_mode = 2
+language = "en"
+
+[node name="ButtonSword" type="Button" parent="Shop/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_1e55k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_24tvl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pwy8b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_obd27")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fgdd7")
+text = "50"
+icon = ExtResource("11_8cr25")
+icon_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("12_s5irk")
+stretch_mode = 3
+
+[node name="Armor" type="Label" parent="Shop/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 32
+text = "Armor: +25 defense"
+vertical_alignment = 1
+autowrap_mode = 2
+language = "en"
+
+[node name="ButtonArmor" type="Button" parent="Shop/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_1e55k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1xw8q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_733qd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_obd27")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fgdd7")
+text = "50
+"
+icon = ExtResource("11_8cr25")
+icon_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("13_dva4v")
+stretch_mode = 3
+
+[node name="Book" type="Label" parent="Shop/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 32
+text = "Book: +25 healing"
+vertical_alignment = 1
+autowrap_mode = 2
+language = "en"
+
+[node name="ButtonBook" type="Button" parent="Shop/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_1e55k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lnvcp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_icrsy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_obd27")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fgdd7")
+text = "50
+"
+icon = ExtResource("11_8cr25")
+icon_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("14_d80o5")
+stretch_mode = 3
+
+[node name="Necklace" type="Label" parent="Shop/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 32
+text = "Necklace: +100 hp"
+vertical_alignment = 1
+autowrap_mode = 2
+language = "en"
+
+[node name="ButtonNecklace" type="Button" parent="Shop/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_1e55k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qk8oj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1anp2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_obd27")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fgdd7")
+text = "100
+"
+icon = ExtResource("11_8cr25")
+icon_alignment = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Shop/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("15_etqt3")
+stretch_mode = 3
+
+[node name="Boots" type="Label" parent="Shop/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 32
+text = "Boots: +1 movement"
+vertical_alignment = 1
+autowrap_mode = 2
+language = "en"
+
+[node name="ButtonBoots" type="Button" parent="Shop/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_1e55k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uw2s7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_86n8b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_obd27")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fgdd7")
+text = "200
+"
+icon = ExtResource("11_8cr25")
+icon_alignment = 2
+
+[node name="DontMoneyMessage" type="Label" parent="Shop"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -37.5
+offset_right = 246.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_erius")
+text = "You don't have enough money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Money" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -230.0
-offset_bottom = 100.0
-grow_horizontal = 0
+anchors_preset = 0
+offset_left = 835.0
+offset_top = 15.0
+offset_right = 1065.0
+offset_bottom = 115.0
 
 [node name="Panel" type="Panel" parent="Money"]
 layout_mode = 1
@@ -1161,3 +1565,8 @@ texture = ExtResource("10_017fe")
 [connection signal="item_selected" from="Settings/MenuButton" to="." method="_on_menu_button_item_selected"]
 [connection signal="pressed" from="Character/ExitCharacter" to="." method="_on_exit_character_pressed"]
 [connection signal="pressed" from="Shop/ExitShop" to="." method="_on_exit_shop_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer/ButtonSword" to="." method="_on_button_sword_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/ButtonArmor" to="." method="_on_button_armor_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer3/ButtonBook" to="." method="_on_button_book_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer4/ButtonNecklace" to="." method="_on_button_necklace_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer5/ButtonBoots" to="." method="_on_button_boots_pressed"]
