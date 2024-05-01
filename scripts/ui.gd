@@ -15,6 +15,12 @@ extends Control
 
 @onready var dont_money_message = $Shop/DontMoneyMessage
 
+func _ready():
+	for item in Arsen.inventory:
+		for container in shop.get_node("VBoxContainer").get_children(false):
+			if item == container.name:
+				shop.get_node("VBoxContainer/" + container.name).queue_free()
+
 func _process(delta):
 	money.text = str(Arsen.get_my_money())
 
@@ -66,11 +72,11 @@ func updateUI():
 	character.get_node("VBoxContainer/HBoxContainer6/Movements").text = tr("MOVEMENTS")
 	
 	shop.get_node("TextEdit").text = tr("SHOP")
-	shop.get_node("VBoxContainer/HBoxContainer/Sword").text = tr("SWORD")
-	shop.get_node("VBoxContainer/HBoxContainer2/Armor").text = tr("ARMOR")
-	shop.get_node("VBoxContainer/HBoxContainer3/Book").text = tr("BOOK")
-	shop.get_node("VBoxContainer/HBoxContainer4/Necklace").text = tr("NECKLACE")
-	shop.get_node("VBoxContainer/HBoxContainer5/Boots").text = tr("BOOTS")
+	shop.get_node("VBoxContainer/Sword/Sword").text = tr("SWORD")
+	shop.get_node("VBoxContainer/Armor/Armor").text = tr("ARMOR")
+	shop.get_node("VBoxContainer/Book/Book").text = tr("BOOK")
+	shop.get_node("VBoxContainer/Necklace/Necklace").text = tr("NECKLACE")
+	shop.get_node("VBoxContainer/Boots/Boots").text = tr("BOOTS")
 	shop.get_node("DontMoneyMessage").text = tr("MESSAGE")
 
 func updateCharacter():
@@ -89,48 +95,55 @@ func _on_exit_shop_pressed():
 
 func _on_button_sword_pressed():
 	var cost = 50
-	if Arsen.get_my_money() > cost:
-		purchase()
+	if Arsen.get_my_money() >= cost:
+		Arsen.set_damage(25)
+		Arsen.decrease_money(cost)
+		Arsen.inventory.push_back("Sword")
+		shop.get_node("VBoxContainer/Sword").queue_free()
 	else:
-		dont_money_message.visible = true
-		await get_tree().create_timer(1).timeout
-		dont_money_message.visible = false
+		no_money()
 
 func _on_button_armor_pressed():
 	var cost = 50
 	if Arsen.get_my_money() > cost:
-		purchase()
+		Arsen.set_defense(25)
+		Arsen.decrease_money(cost)
+		Arsen.inventory.push_back("Armor")
+		shop.get_node("VBoxContainer/Armor").queue_free()
 	else:
-		dont_money_message.visible = true
-		await get_tree().create_timer(1).timeout
-		dont_money_message.visible = false
+		no_money()
 
 func _on_button_book_pressed():
 	var cost = 50
 	if Arsen.get_my_money() > cost:
-		purchase()
+		Arsen.set_heal(25)
+		Arsen.decrease_money(cost)
+		Arsen.inventory.push_back("Book")
+		shop.get_node("VBoxContainer/Book").queue_free()
 	else:
-		dont_money_message.visible = true
-		await get_tree().create_timer(1).timeout
-		dont_money_message.visible = false
+		no_money()
 
 func _on_button_necklace_pressed():
 	var cost = 100
 	if Arsen.get_my_money() > cost:
-		purchase()
+		Arsen.set_max_hp(100)
+		Arsen.decrease_money(cost)
+		Arsen.inventory.push_back("Necklace")
+		shop.get_node("VBoxContainer/Necklace").queue_free()
 	else:
-		dont_money_message.visible = true
-		await get_tree().create_timer(1).timeout
-		dont_money_message.visible = false
+		no_money()
 
 func _on_button_boots_pressed():
 	var cost = 200
 	if Arsen.get_my_money() > cost:
-		purchase()
+		Arsen.set_movements(1)
+		Arsen.decrease_money(cost)
+		Arsen.inventory.push_back("Boots")
+		shop.get_node("VBoxContainer/Boots").queue_free()
 	else:
-		dont_money_message.visible = true
-		await get_tree().create_timer(1).timeout
-		dont_money_message.visible = false
+		no_money()
 
-func purchase():
-	pass
+func no_money():
+	dont_money_message.visible = true
+	await get_tree().create_timer(1).timeout
+	dont_money_message.visible = false

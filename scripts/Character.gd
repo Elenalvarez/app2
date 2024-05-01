@@ -4,6 +4,8 @@ class_name Character
 @onready var stats: Stats = get_node("Stats")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 
+var inventory: Array
+
 func get_my_name():
 	return stats.my_name
 	
@@ -34,11 +36,32 @@ func get_my_money():
 func get_movements():
 	return stats.movement
 
+func set_max_hp(value: int):
+	stats.set_max_hp(value)
+
+func set_max_mana(value: int):
+	stats.set_max_mana(value)
+
+func set_damage(value: int):
+	stats.set_damage(value)
+
+func set_defense(value: int):
+	stats.set_defense(value)
+
+func set_heal(value: int):
+	stats.set_heal(value)
+
+func set_movements(value: int):
+	stats.set_movements(value)
+
 func increase_mana(mult: int):
 	stats.increase_mana(mult)
 
 func increase_money(cant: int):
 	stats.increase_money(cant)
+
+func decrease_money(cant: int):
+	stats.decrease_money(cant)
 
 func make_damage(mult_attack: int):
 	match mult_attack:

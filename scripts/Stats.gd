@@ -32,10 +32,22 @@ func _ready():
 	mana = 0
 
 func set_max_hp(value: int):
-	max_hp = max(0, value)
+	max_hp += value
 
 func set_max_mana(value: int):
-	max_mana = max(0, value)
+	max_mana += value
+
+func set_damage(value: int):
+	damage += value
+
+func set_defense(value: int):
+	defense += value
+
+func set_heal(value: int):
+	heal += value
+
+func set_movements(value: int):
+	movement += value
 
 func increase_mana(mult: int):
 	var mana_inc= mana + mult * MANA_INCREASE
@@ -43,6 +55,9 @@ func increase_mana(mult: int):
 
 func increase_money(cant: int):
 	money += cant
+
+func decrease_money(cant: int):
+	money -= cant
 
 func make_damage(mult_attack: int):
 	return damage * mult_attack

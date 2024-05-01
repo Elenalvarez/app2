@@ -1242,6 +1242,7 @@ text = "
 "
 
 [node name="Shop" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 204.0
@@ -1313,17 +1314,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Shop/VBoxContainer"]
+[node name="Sword" type="HBoxContainer" parent="Shop/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/Sword"]
 layout_mode = 2
 texture = ExtResource("10_mgw1s")
 stretch_mode = 3
 
-[node name="Sword" type="Label" parent="Shop/VBoxContainer/HBoxContainer"]
+[node name="Sword" type="Label" parent="Shop/VBoxContainer/Sword"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1333,7 +1334,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 language = "en"
 
-[node name="ButtonSword" type="Button" parent="Shop/VBoxContainer/HBoxContainer"]
+[node name="ButtonSword" type="Button" parent="Shop/VBoxContainer/Sword"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1347,17 +1348,17 @@ text = "50"
 icon = ExtResource("11_8cr25")
 icon_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Shop/VBoxContainer"]
+[node name="Armor" type="HBoxContainer" parent="Shop/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/Armor"]
 layout_mode = 2
 texture = ExtResource("12_s5irk")
 stretch_mode = 3
 
-[node name="Armor" type="Label" parent="Shop/VBoxContainer/HBoxContainer2"]
+[node name="Armor" type="Label" parent="Shop/VBoxContainer/Armor"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1367,7 +1368,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 language = "en"
 
-[node name="ButtonArmor" type="Button" parent="Shop/VBoxContainer/HBoxContainer2"]
+[node name="ButtonArmor" type="Button" parent="Shop/VBoxContainer/Armor"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1382,17 +1383,17 @@ text = "50
 icon = ExtResource("11_8cr25")
 icon_alignment = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Shop/VBoxContainer"]
+[node name="Book" type="HBoxContainer" parent="Shop/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/Book"]
 layout_mode = 2
 texture = ExtResource("13_dva4v")
 stretch_mode = 3
 
-[node name="Book" type="Label" parent="Shop/VBoxContainer/HBoxContainer3"]
+[node name="Book" type="Label" parent="Shop/VBoxContainer/Book"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1402,7 +1403,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 language = "en"
 
-[node name="ButtonBook" type="Button" parent="Shop/VBoxContainer/HBoxContainer3"]
+[node name="ButtonBook" type="Button" parent="Shop/VBoxContainer/Book"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1417,17 +1418,17 @@ text = "50
 icon = ExtResource("11_8cr25")
 icon_alignment = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Shop/VBoxContainer"]
+[node name="Necklace" type="HBoxContainer" parent="Shop/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/Necklace"]
 layout_mode = 2
 texture = ExtResource("14_d80o5")
 stretch_mode = 3
 
-[node name="Necklace" type="Label" parent="Shop/VBoxContainer/HBoxContainer4"]
+[node name="Necklace" type="Label" parent="Shop/VBoxContainer/Necklace"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1437,7 +1438,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 language = "en"
 
-[node name="ButtonNecklace" type="Button" parent="Shop/VBoxContainer/HBoxContainer4"]
+[node name="ButtonNecklace" type="Button" parent="Shop/VBoxContainer/Necklace"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1452,17 +1453,17 @@ text = "100
 icon = ExtResource("11_8cr25")
 icon_alignment = 2
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Shop/VBoxContainer"]
+[node name="Boots" type="HBoxContainer" parent="Shop/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 50
 
-[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/HBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="Shop/VBoxContainer/Boots"]
 layout_mode = 2
 texture = ExtResource("15_etqt3")
 stretch_mode = 3
 
-[node name="Boots" type="Label" parent="Shop/VBoxContainer/HBoxContainer5"]
+[node name="Boots" type="Label" parent="Shop/VBoxContainer/Boots"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1472,7 +1473,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 language = "en"
 
-[node name="ButtonBoots" type="Button" parent="Shop/VBoxContainer/HBoxContainer5"]
+[node name="ButtonBoots" type="Button" parent="Shop/VBoxContainer/Boots"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -1565,8 +1566,8 @@ texture = ExtResource("10_017fe")
 [connection signal="item_selected" from="Settings/MenuButton" to="." method="_on_menu_button_item_selected"]
 [connection signal="pressed" from="Character/ExitCharacter" to="." method="_on_exit_character_pressed"]
 [connection signal="pressed" from="Shop/ExitShop" to="." method="_on_exit_shop_pressed"]
-[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer/ButtonSword" to="." method="_on_button_sword_pressed"]
-[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/ButtonArmor" to="." method="_on_button_armor_pressed"]
-[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer3/ButtonBook" to="." method="_on_button_book_pressed"]
-[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer4/ButtonNecklace" to="." method="_on_button_necklace_pressed"]
-[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer5/ButtonBoots" to="." method="_on_button_boots_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Sword/ButtonSword" to="." method="_on_button_sword_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Armor/ButtonArmor" to="." method="_on_button_armor_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Book/ButtonBook" to="." method="_on_button_book_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Necklace/ButtonNecklace" to="." method="_on_button_necklace_pressed"]
+[connection signal="pressed" from="Shop/VBoxContainer/Boots/ButtonBoots" to="." method="_on_button_boots_pressed"]
