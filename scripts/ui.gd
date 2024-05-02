@@ -105,7 +105,7 @@ func _on_button_sword_pressed():
 
 func _on_button_armor_pressed():
 	var cost = 50
-	if Arsen.get_my_money() > cost:
+	if Arsen.get_my_money() >= cost:
 		Arsen.set_defense(25)
 		Arsen.decrease_money(cost)
 		Arsen.inventory.push_back("Armor")
@@ -115,7 +115,7 @@ func _on_button_armor_pressed():
 
 func _on_button_book_pressed():
 	var cost = 50
-	if Arsen.get_my_money() > cost:
+	if Arsen.get_my_money() >= cost:
 		Arsen.set_heal(25)
 		Arsen.decrease_money(cost)
 		Arsen.inventory.push_back("Book")
@@ -125,7 +125,7 @@ func _on_button_book_pressed():
 
 func _on_button_necklace_pressed():
 	var cost = 100
-	if Arsen.get_my_money() > cost:
+	if Arsen.get_my_money() >= cost:
 		Arsen.set_max_hp(100)
 		Arsen.decrease_money(cost)
 		Arsen.inventory.push_back("Necklace")
@@ -135,7 +135,7 @@ func _on_button_necklace_pressed():
 
 func _on_button_boots_pressed():
 	var cost = 200
-	if Arsen.get_my_money() > cost:
+	if Arsen.get_my_money() >= cost:
 		Arsen.set_movements(1)
 		Arsen.decrease_money(cost)
 		Arsen.inventory.push_back("Boots")

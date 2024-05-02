@@ -17,9 +17,11 @@ preload("res://scenes/blocks/heal_block.tscn")]
 @onready var grid = $GridContainer
 @onready var level: level = get_parent()
 @onready var animation = $AnimationPlayer
+@onready var area = $Area2D
 
 
 func _ready():
+	set_process_input(true)
 	add_piece(2)
 
 func _process(delta):
@@ -43,16 +45,19 @@ func _process(delta):
 		await get_tree().create_timer(0.2).timeout
 		add_piece(1)
 		level.make_movement()
-	if Input.is_action_just_pressed("press"):
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if event is InputEventScreenTouch and event.pressed:
 		if !swiping:
 			swiping = true
 			startPos = get_global_mouse_position()
+			print(str(startPos))
 	
-	if Input.is_action_pressed("press"):
+	if event is InputEventScreenTouch and !event.pressed:
 		if swiping:
 			curPos= get_global_mouse_position()
 			if startPos.distance_to(curPos) >= 100:
-				if abs(startPos.y - curPos.y) <= 10:
+				if abs(startPos.y - curPos.y) <= 50:
 					if startPos.x > curPos.x:
 						print("<-")
 						move_left()
@@ -63,8 +68,7 @@ func _process(delta):
 						move_right()
 						add_piece(1)
 						level.make_movement()
-					swiping = false
-				elif abs(startPos.x - curPos.x) <= 10:
+				elif abs(startPos.x - curPos.x) <= 50:
 					if startPos.y > curPos.y:
 						print("^")
 						move_up()
@@ -75,7 +79,7 @@ func _process(delta):
 						move_down()
 						add_piece(1)
 						level.make_movement()
-					swiping = false
+			swiping = false
 
 func is_blank_space():
 	var blank = false
@@ -276,4 +280,5 @@ func get_max_block():
 	
 	board[result_coords[0]][result_coords[1]] = 0
 	result_container.get_child(0).free()
+
 

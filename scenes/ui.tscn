@@ -952,19 +952,37 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_3tu6k")
 icon = ExtResource("5_7rkjt")
 flat = true
 
-[node name="MusicButton" type="CheckButton" parent="Settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -110.0
-offset_top = -151.5
-offset_right = 109.0
-offset_bottom = -94.5
+offset_left = -206.0
+offset_top = -291.5
+offset_right = 206.0
+offset_bottom = 291.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 37
+text = "Music:"
+vertical_alignment = 1
+language = "en"
+
+[node name="MusicButton" type="CheckButton" parent="Settings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_pressed_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_hover_color = Color(0.721569, 0.435294, 0.313726, 1)
@@ -972,7 +990,7 @@ theme_override_colors/font_hover_pressed_color = Color(0.721569, 0.435294, 0.313
 theme_override_colors/font_focus_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_disabled_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_outline_color = Color(0.721569, 0.435294, 0.313726, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 37
 theme_override_icons/checked = ExtResource("6_hnlfk")
 theme_override_icons/unchecked = ExtResource("7_djoab")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qdhvo")
@@ -982,29 +1000,33 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_35ndg")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_w2qky")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2enxu")
 button_pressed = true
-text = "Music"
 flat = true
+alignment = 1
+text_overrun_behavior = 2
+icon_alignment = 1
+language = "en"
 
-[node name="MenuButton" type="OptionButton" parent="Settings"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 19.0
-offset_top = -45.5
-offset_right = 184.0
-offset_bottom = 39.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
+theme_override_font_sizes/font_size = 37
+text = "Language:"
+
+[node name="MenuButton" type="OptionButton" parent="Settings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_pressed_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_hover_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_focus_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_disabled_color = Color(0.721569, 0.435294, 0.313726, 1)
 theme_override_colors/font_outline_color = Color(0.721569, 0.435294, 0.313726, 1)
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 37
 theme_override_icons/arrow = ExtResource("8_n3j1i")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o011o")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1j50c")
@@ -1022,23 +1044,6 @@ popup/item_1/text = "Spain"
 popup/item_1/id = 1
 popup/item_2/text = "French"
 popup/item_2/id = 2
-
-[node name="Label" type="Label" parent="Settings"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -27.5
-offset_right = -19.0
-offset_bottom = 27.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.721569, 0.435294, 0.313726, 1)
-theme_override_font_sizes/font_size = 35
-text = "Language:"
 
 [node name="Character" type="Control" parent="."]
 visible = false
@@ -1562,8 +1567,8 @@ texture = ExtResource("10_017fe")
 [connection signal="pressed" from="ColorRect/HBoxContainer/CharacterButton" to="." method="_on_character_button_pressed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Settings/ExitSettings" to="." method="_on_exit_settings_pressed"]
-[connection signal="pressed" from="Settings/MusicButton" to="." method="_on_music_button_pressed"]
-[connection signal="item_selected" from="Settings/MenuButton" to="." method="_on_menu_button_item_selected"]
+[connection signal="pressed" from="Settings/VBoxContainer/HBoxContainer2/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="item_selected" from="Settings/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_item_selected"]
 [connection signal="pressed" from="Character/ExitCharacter" to="." method="_on_exit_character_pressed"]
 [connection signal="pressed" from="Shop/ExitShop" to="." method="_on_exit_shop_pressed"]
 [connection signal="pressed" from="Shop/VBoxContainer/Sword/ButtonSword" to="." method="_on_button_sword_pressed"]
