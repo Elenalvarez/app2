@@ -20,25 +20,22 @@ var main =  load("res://scenes/main.tscn")
 
 var max_movs: int
 var movs: int
-var arsen
 var enemy
 
 func _ready():
 	victory_tag.text = tr("WIN")
 	defeat_tag.text = tr("LOSE")
 	
-	var pj = ARSEN.instantiate()
-	pj.position = arsen_position.position
-	add_child(pj)
-	arsen = get_node(pj.get_my_name())
-	arsen_health_bar.set_character(pj.get_my_name())
+	Arsen.position = arsen_position.position
+	Arsen.visible = true
+	arsen_health_bar.set_arsen()
 	arsen_health_bar.update()
-	arsen_mana_bar.set_character(pj.get_my_name())
+	arsen_mana_bar.set_character()
 	arsen_mana_bar.update()
-	max_movs = pj.get_movements()
+	max_movs = Arsen.get_movements()
 	movs = max_movs
 	movement.text = str(movs)
-	arsen_health_number.text = str(pj.get_hp())
+	arsen_health_number.text = str(Arsen.get_hp())
 	
 	var e = enemy_type.instantiate()
 	e.position = enemy_position.position
@@ -63,14 +60,14 @@ func make_movement():
 func attack_turn(mult: int):
 	var mult_normal = mult
 	#ataca arsen primero, comprobando si tiene ulti
-	if arsen.get_mana() == arsen.get_max_mana():
+	if Arsen.get_mana() == Arsen.get_max_mana():
 		mult= 10
 	
-	enemy.take_damage(arsen.make_damage(mult), 1)
+	enemy.take_damage(Arsen.make_damage(mult), 1)
 	enemy_health_bar.update()
 	arsen_mana_bar.update()
 	enemy_health_number.text = str(enemy.get_hp())
-	await arsen.animated_sprite.animation_finished
+	await Arsen.animated_sprite.animation_finished
 	await enemy.animated_sprite.animation_finished
 	
 	#ataca el enemigo
@@ -82,6 +79,7 @@ func attack_turn(mult: int):
 		get_tree().paused = true
 		await get_tree().create_timer(3).timeout
 		get_tree().paused = false
+		Arsen.visible = false
 		get_tree().change_scene_to_packed(main)
 		
 	
@@ -90,19 +88,19 @@ func attack_turn(mult: int):
 
 func defend_turn(mult: int):
 	#arsen se defiende del ataque enemigo
-	arsen.take_damage(enemy.make_damage(1), mult)
+	Arsen.take_damage(enemy.make_damage(1), mult)
 	arsen_health_bar.update()
-	arsen_health_number.text = str(arsen.get_hp())
-	await arsen.animated_sprite.animation_finished
+	arsen_health_number.text = str(Arsen.get_hp())
+	await Arsen.animated_sprite.animation_finished
 	
 	#sube el maná
 	increase_mana(mult)
 
 func heal_turn(mult: int):
 	#arsen se cura
-	arsen.healing(mult)
+	Arsen.healing(mult)
 	arsen_health_bar.update()
-	arsen_health_number.text = str(arsen.get_hp())
+	arsen_health_number.text = str(Arsen.get_hp())
 	
 	#ataca el enemigo
 	enemy_attack()
@@ -111,19 +109,20 @@ func heal_turn(mult: int):
 	increase_mana(mult)
 
 func increase_mana(mult: int):
-	arsen.increase_mana(mult)
+	Arsen.increase_mana(mult)
 	arsen_mana_bar.update()
 
 func enemy_attack():
-	arsen.take_damage(enemy.make_damage(1), 0)
+	Arsen.take_damage(enemy.make_damage(1), 0)
 	arsen_health_bar.update()
-	arsen_health_number.text = str(arsen.get_hp())
-	await arsen.animated_sprite.animation_finished
-	if arsen.is_dead():
+	arsen_health_number.text = str(Arsen.get_hp())
+	await Arsen.animated_sprite.animation_finished
+	if Arsen.is_dead():
 		defeat_tag.visible = true
 		get_tree().paused = true
 		await get_tree().create_timer(3).timeout
 		get_tree().paused = false
+		Arsen.visible = false
 		get_tree().change_scene_to_packed(main)
 		
 

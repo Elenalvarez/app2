@@ -268,10 +268,10 @@ texture = ExtResource("3_e3s88")
 
 [node name="GoBackButton" type="Button" parent="TextureRect"]
 layout_mode = 1
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 59.0
-offset_bottom = 79.0
+offset_left = 29.0
+offset_top = 29.0
+offset_right = 95.0
+offset_bottom = 127.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_seuql")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cuv1s")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w8tqu")
@@ -279,6 +279,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_1atr8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0rok")
 icon = ExtResource("4_ofdtt")
 flat = true
+expand_icon = true
 
 [node name="Win" type="Label" parent="TextureRect"]
 visible = false

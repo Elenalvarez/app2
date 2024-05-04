@@ -645,6 +645,7 @@ animations = [{
 }]
 
 [node name="Arsen" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_jykdt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -57,6 +57,9 @@ func set_movements(value: int):
 func increase_mana(mult: int):
 	stats.increase_mana(mult)
 
+func delete_mana():
+	stats.mana= 0
+
 func increase_money(cant: int):
 	stats.increase_money(cant)
 

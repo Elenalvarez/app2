@@ -60,8 +60,8 @@ func _on_menu_button_item_selected(index):
 
 func updateUI():
 	settings.get_node("TextEdit").text = tr("SETTINGS")
-	settings.get_node("MusicButton").text = tr("MUSIC")
-	settings.get_node("Label").text = tr("LANGUAGE")
+	settings.get_node("VBoxContainer/HBoxContainer/Label").text = tr("MUSIC")
+	settings.get_node("VBoxContainer/HBoxContainer2/Label").text = tr("LANGUAGE")
 	
 	character.get_node("TextEdit").text = tr("CHARACTER")
 	character.get_node("VBoxContainer/HBoxContainer/HP").text = tr("HP")
@@ -127,6 +127,7 @@ func _on_button_necklace_pressed():
 	var cost = 100
 	if Arsen.get_my_money() >= cost:
 		Arsen.set_max_hp(100)
+		Arsen.healing(100)
 		Arsen.decrease_money(cost)
 		Arsen.inventory.push_back("Necklace")
 		shop.get_node("VBoxContainer/Necklace").queue_free()

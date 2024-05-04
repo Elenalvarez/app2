@@ -17,7 +17,7 @@ preload("res://scenes/blocks/heal_block.tscn")]
 @onready var grid = $GridContainer
 @onready var level: level = get_parent()
 @onready var animation = $AnimationPlayer
-@onready var area = $Area2D
+@onready var area = get_node("Area2D")
 
 
 func _ready():
@@ -57,7 +57,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		if swiping:
 			curPos= get_global_mouse_position()
 			if startPos.distance_to(curPos) >= 100:
-				if abs(startPos.y - curPos.y) <= 50:
+				if abs(startPos.y - curPos.y) <= 75:
 					if startPos.x > curPos.x:
 						print("<-")
 						move_left()
@@ -68,7 +68,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 						move_right()
 						add_piece(1)
 						level.make_movement()
-				elif abs(startPos.x - curPos.x) <= 50:
+				elif abs(startPos.x - curPos.x) <= 75:
 					if startPos.y > curPos.y:
 						print("^")
 						move_up()
